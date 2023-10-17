@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import datetime as dt
 import statsmodels.api as sma
 
-#the pca function is written for you, call this from your code to calculate the 1st PC
+#the pca function
 def pca_function(stdata):
     """Returns the sign identified 1st principal component of a data set.
     input: stdata - a n x t pandas data frame
@@ -16,20 +16,21 @@ def pca_function(stdata):
     sgn = np.sign(pd.concat([stdata.mean(1), factor1], axis=1).corr().iloc[1, 0])
     return factor1 * sgn
 
-#produce your analysis for the following five variables, which was chosen from the question paper
+#My analysis for the following five variables
 my_srs = ['INDPRO', 'S&P 500', 'PAYEMS', 'CPIAUCSL', 'BUSINVx']
 
-#enter your code below, save this file as ‘final_exam.py’, Zip and upload as instructed
-
+#Load the data from the ‘2021-12.csv’ file
 data = pd.read_csv("2021-12.csv",index_col=0)
 df = data.drop(["Transform:"], axis = 0)
-df.dropna(how ="all",inplace = True) #drop lines from the file where all entries are NaN
+df.dropna(how ="all",inplace = True) #Drop lines from the file where all entries are NaN
 df.index = pd.to_datetime(df.index,format='%m/%d/%Y').to_period('M')
 
+#Select the data up to and including December 2019
 my_df = df[df.index <'2020-01']
 
+#Load the data description table: ‘fred_md_desc.csv’ file
 data_1 = pd.read_csv("fred_md_desc.csv",index_col = 0)
-data_1.dropna(how ="all", inplace = True) #drop lines from the file where all entries are NaN
+data_1.dropna(how ="all", inplace = True) #Drop lines from the file where all entries are NaN
 df_1 = data_1.drop(['fred'],axis = 1)
 
 desc = pd.DataFrame(df_1.values,index = data_1['fred'],columns = df_1.columns)
