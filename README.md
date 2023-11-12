@@ -1,5 +1,5 @@
 # US-economy
-Estimate and analyse a simple model of the US economy
+The main activities of this project is estimate and analyse a simple model of the US economy. 
 
 The necessary data is in three csv files, as follows:
 1. The file ‘2021-12.csv’. The file containing 127 monthly US economic time series
