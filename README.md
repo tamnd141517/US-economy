@@ -6,12 +6,12 @@ The necessary data is in three csv files, as follows:
 statistics from Mathew McCraken’s FRED-MD project
 (https://research.stlouisfed.org/econ/mccracken/fred-databases/).
 2. The file ‘fred_md_desc.csv’ – a file containing a variety of summary data for the
-FRED-MD data.
+FRED-MD data, including the formula for each variable which should be transformed.
 3. ‘NBER_DATES.csv’ – a table containing the dates of US economic recessions
 and expansions as identified by the US National Bureau of Economic Research
 (https://www.nber.org).
 
-The output of my model is then used to build a regression model for five economic time
+The output of my model is then used to build a AR(1) model for five economic time
 series, also extracted from the database.
 
 
@@ -28,3 +28,7 @@ Tfcode Description          Pandas Code
 4      Log 1st differences  np.log(srs).diff()
 5      Log 2nd differences  np.log(srs).diff().diff()
 6      Percent Change       (srs/srs.shift(1) – 1)
+
+Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
