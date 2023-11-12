@@ -18,17 +18,4 @@ series, also extracted from the database.
 In order to fit the model, the data needs to be mathematically transformed in
 several ways. The transformation required for each series and the corresponding
 code to compute these are set out below. The appropriate transformation for each
-variable is supplied in the ‘tfcode’ field in the description table. The table below
-gives the code required to transform the data for any given Pandas Series stored in
-the variable ‘srs’:
-Tfcode Description          Pandas Code
-1      1st differences      srs.diff()
-2      2nd differences      srs.diff().diff()
-3      Log np.log(srs)
-4      Log 1st differences  np.log(srs).diff()
-5      Log 2nd differences  np.log(srs).diff().diff()
-6      Percent Change       (srs/srs.shift(1) – 1)
-
-Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
+variable is supplied in the ‘tfcode’ field in the description table.
