@@ -11,7 +11,7 @@ FRED-MD data, including the formula for each variable which should be transforme
 and expansions as identified by the US National Bureau of Economic Research
 (https://www.nber.org).
 
-The output of my model is then used to build a AR(1) model for five economic time
+The output of my model is then used to build a ADL(1) model for five economic time
 series, also extracted from the database.
 
 
